@@ -24,6 +24,10 @@ jobs:
         run: |
           ls ${{ github.workspace }}
 
+      - name: Print the tag name
+        run: |
+          echo ${{ github.ref }}
+
       - name: Create Release to get an id
         id: create_release_id
         uses: actions/create-release@v1
