@@ -16,18 +16,24 @@ jobs:
         run: |
           echo ${{ github.ref }}
 
-      # - name: List files in the repository
-      #   run: |
-      #     ls ${{ github.workspace }}
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
 
-      # - run: echo "This job's status is ${{ job.status }}."
-      # - run: mvn clean install
+      - run: echo "This job's status is ${{ job.status }}."
+      - run: mvn clean install
 
-      # - name: List files in the repository
-      #   run: |
-      #     ls ${{ github.workspace }}
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
 
-      
+      - name: Upload file 1
+        run: |
+          gh release upload ${{github.event.release.tag_name}} agent/service/target/MFT-Agent-0.01-bin.zip
+
+      - name: Upload file 2
+        run: |
+          gh release upload ${{github.event.release.tag_name}} standalone-service/target/Standalone-Service-0.01-bin.zip      
 
       # - name: Create Release to get an id
       #   id: create_release_id
