@@ -30,10 +30,14 @@ jobs:
       - name: Upload file 1
         run: |
           gh release upload ${{github.event.release.tag_name}} agent/service/target/MFT-Agent-0.01-bin.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload file 2
         run: |
           gh release upload ${{github.event.release.tag_name}} standalone-service/target/Standalone-Service-0.01-bin.zip      
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # - name: Create Release to get an id
       #   id: create_release_id
